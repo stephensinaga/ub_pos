@@ -1,7 +1,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-    <a href="{{ route('dashboard')}}" class="logo d-flex align-items-center">
+    <a href="{{ route('Dashboard')}}" class="logo d-flex align-items-center">
         <img src="{{ asset('assets/img/company_logo.png')}}" alt="">
         <span class="d-none d-lg-block">POS</span>
     </a>
