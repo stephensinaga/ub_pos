@@ -15,24 +15,21 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Route::get('', [AdminController::class, 'CreateProductView'])->name('CreateProductView');
-// Route::post('admin/create/product', [AdminController::class, 'CreateProduct'])->name('CreateProductProcess');
-// Route::delete('admin/delete/product/{id}', [AdminController::class, 'DeleteProduct'])->name('DeleteProduct');
-// Route::get('admin/edit/product/view/{id}', [AdminController::class, 'EditProductView'])->name('EditProductView');
-// Route::put('admin/edit/product/{id}', [AdminController::class, 'EditProduct'])->name('EditProductProcess');
-
-
 Route::controller(AuthController::class)->group(function () {
-	Route::get('register', 'register')->name('register');
-	Route::post('register', 'registerSimpan')->name('register.simpan');
-	Route::get('', 'login')->name('login');
-	Route::post('login', 'loginAksi')->name('login.aksi');
-	Route::get('logout', 'logout')->middleware('auth')->name('logout');
+    Route::get('register', 'register')->name('register');
+    Route::post('register', 'registerSimpan')->name('register.simpan');
+    Route::get('', 'login')->name('login');
+    Route::post('login', 'loginAksi')->name('login.aksi');
+    Route::get('logout', 'logout')->middleware('auth')->name('logout');
 });
 
-Route::middleware('auth')->group(function () {
-	Route::get('dashboard', function () {
-		return view('dashboard');
-	})->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('dashboard', [AdminController::class, 'Dashboard'])->name('Dashboard');
+    Route::get('create/view', [AdminController::class, 'CreateProductView'])->name('CreateProductView');
+    Route::post('create/product', [AdminController::class, 'CreateProduct'])->name('CreateProductProcess');
+    Route::delete('delete/product/{id}', [AdminController::class, 'DeleteProduct'])->name('DeleteProduct');
+    Route::get('edit/product/view/{id}', [AdminController::class, 'EditProductView'])->name('EditProductView');
+    Route::put('edit/product/{id}', [AdminController::class, 'EditProduct'])->name('EditProductProcess');
+});
 });

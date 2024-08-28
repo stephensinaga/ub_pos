@@ -3,14 +3,14 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-        <a class="nav-link " href="{{ route('dashboard')}}">
+        <a class="nav-link " href="{{ route('Dashboard')}}">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="{{ route('CreateProductView') }}">
         <i class="bi bi-box-fill"></i>
         <span>Barang</span>
         </a>
