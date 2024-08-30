@@ -16,6 +16,13 @@
         </a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link " href="{{ route('OrderProductView') }}">
+        <i class="bi bi-box-fill"></i>
+        <span>Order Product</span>
+        </a>
+    </li>
+
 
     <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
